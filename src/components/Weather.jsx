@@ -4,30 +4,31 @@ import { connect } from 'react-redux'
 import * as WeatherActions from '../actions'
 import Controls from '../components/Controls'
 
-class WeatherContainer extends Component {
+class Weather extends Component {
   constructor(props) {
     super(props)
   }
 
   render() {
     const { actions, weather } = this.props
+    const data = (weather.data) ? weather.data[0] : undefined;
     return (
       <div>asdasdasd
-        hi {weather.data[0].timezone}
+        hi {data}
         <Controls getWeather={actions.getWeather}/>
       </div>
     )
   };
 }
 
-WeatherContainer.propTypes = {
+Weather.propTypes = {
   actions: PropTypes.object.isRequired,
   weather: PropTypes.array.isRequired,
 }
 
 function mapStateToProps(state) {
   return {
-    weather: state.weather
+    weather: state.weather || {}
   }
 }
 
@@ -40,4 +41,4 @@ function mapDispatchToProps(dispatch) {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(WeatherContainer)
+)(Weather)

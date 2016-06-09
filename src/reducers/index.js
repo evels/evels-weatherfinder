@@ -11,10 +11,9 @@
 
 import { combineReducers } from 'redux'
 import weather from './weather'
-import todos from './todos'
 
 const rootReducer = combineReducers({
-  weather, todos
+  weather
 })
 
 export default rootReducer
