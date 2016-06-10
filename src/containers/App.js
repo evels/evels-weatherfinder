@@ -10,8 +10,8 @@ class App extends Component {
           {this.props.children || <Weather />}
         </div>
       </div>
-    )
+    );
   }
 }
 
-export default App
+export default App;

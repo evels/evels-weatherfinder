@@ -10,15 +10,15 @@ class Weather extends Component {
   }
 
   render() {
-    const { actions, weather } = this.props
+    const { actions, weather } = this.props;
     const data = (weather.data) ? weather.data[0] : undefined;
     return (
       <div>asdasdasd
         hi {data}
         <Controls getWeather={actions.getWeather}/>
       </div>
-    )
-  };
+    );
+  }
 }
 
 Weather.propTypes = {

@@ -8,7 +8,7 @@ class Controls extends Component {
         <button className="hi"
                 onClick={() => this.props.getWeather()} >asdasdsd</button>
       </div>
-    )
+    );
   }
 }
 Controls.propTypes = {
