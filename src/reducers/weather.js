@@ -1,5 +1,4 @@
 const initialState = {
-  data: {}
 };
 
 export default function weather(state = initialState, action = {}) {

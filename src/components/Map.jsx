@@ -16,6 +16,7 @@ class Map extends Component {
       }],
     }
     this._handleWindowResize = _.throttle(this._handleWindowResize.bind(this), 500);
+    this._handleMapClick = this._handleMapClick.bind(this);
   }
 
   componentDidMount() {
