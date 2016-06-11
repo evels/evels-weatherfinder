@@ -6,7 +6,7 @@ class Controls extends Component {
     return (
       <div>
         <button className="hi"
-                onClick={() => this.props.getWeather()} >asdasdsd</button>
+                onClick={() => this.props.getWeather()} >this is my button</button>
       </div>
     );
   }

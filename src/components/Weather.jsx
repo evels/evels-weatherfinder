@@ -3,6 +3,7 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import * as WeatherActions from '../actions'
 import Controls from '../components/Controls'
+import Map from '../components/Map'
 
 class Weather extends Component {
   constructor(props) {
@@ -11,10 +12,11 @@ class Weather extends Component {
 
   render() {
     const { actions, weather } = this.props;
-    const data = (weather.data) ? weather.data[0] : undefined;
+    const timezone = (weather.data) ? weather.data[0].timezone : undefined;
     return (
       <div>asdasdasd
-        hi {data}
+        hi {timezone}
+        <Map />
         <Controls getWeather={actions.getWeather}/>
       </div>
     );
