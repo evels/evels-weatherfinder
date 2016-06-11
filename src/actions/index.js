@@ -16,3 +16,10 @@ function receiveWeather(json) {
     data: json
   }
 }
+
+export function setDate(date) {
+  return {
+    type: types.SET_DATE, 
+    date
+  }
+}

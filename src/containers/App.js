@@ -17,26 +17,26 @@ class App extends Component {
   }
 
   componentDidMount() {
-    //this.props.actions.getWeather({ lat: location.DEFAULT_LAT, lng: location.DEFAULT_LNG, date: moment().format() });
+    this.props.actions.getWeather({ lat: location.DEFAULT_LAT, lng: location.DEFAULT_LNG, date: moment().format() });
   }
 
   _handleDateChange(newDate) {
     const { actions, weather } = this.props;
+    actions.setDate(newDate);
     actions.getWeather({ lat: weather.data.latitude, lng: weather.data.longitude, date: moment().format() });
   }
 
   _handleLocationChange(lat, lng) {
-    const { actions, date } = this.props;
-    actions.getWeather({ lat: lat, lng: lng, date: date.format() });
+    const { actions, weather } = this.props;
+    actions.getWeather({ lat: lat, lng: lng, date: weather.date.format() });
   }
 
   render() {
     const {
       actions,
       weather,
-      date,
     } = this.props;
-
+    const date = (weather.date) ? weather.date : moment().format('MM/DD/YYYY h:mm A');
     const results = (weather.data) ? (<Results
               timezone={weather.data.timezone || ''}
               humidity={weather.data.currently.humidity || ''}
@@ -44,12 +44,23 @@ class App extends Component {
               />) : null;
 
     return (
-      <div className="app">
-        <Map changeData={this._handleLocationChange}/>
-        <DateTime
-          value={date}
-          onChange={this._handleDateChange}/>
-        {results}
+      <div className={'app'}>
+        <h1>WeatherNerdzzz</h1>
+        <div className={'container'}>
+          <Map changeData={this._handleLocationChange}/>
+          <div className={'sidebar'}>
+            {results}
+            <h3>Location Selected:</h3>
+            <p>Latitude: {(weather.data) ? weather.data.latitude : ''}</p>
+            <p>Longitude: {(weather.data) ? weather.data.longitude : ''}</p>
+            <h3>Date and Time Selected: </h3>
+            <DateTime
+              value={date}
+              defaultDate={new Date()}
+              onChange={this._handleDateChange}/>
+
+          </div>
+        </div>
       </div>
     )
   };
@@ -58,17 +69,11 @@ class App extends Component {
 App.propTypes = {
   actions: PropTypes.object.isRequired,
   weather: PropTypes.object.isRequired,
-  date: PropTypes.object.isRequired,
-  lng: PropTypes.number.isRequired,
-  lat: PropTypes.number.isRequired,
 }
 
 function mapStateToProps(state) {
   return {
     weather: state.weather,
-    date: state.date || moment(),
-    lng: state.lng || location.DEFAULT_LNG,
-    lat: state.lat || location.DEFAULT_LAT
   }
 }
 

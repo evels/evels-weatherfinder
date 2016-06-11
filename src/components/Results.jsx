@@ -9,10 +9,10 @@ class Results extends Component {
   render() {
     const { timezone, humidity, temperature } = this.props;
     return (
-      <div>
+      <div className="results">
         {timezone}
-        {humidity}
-        {temperature}
+        Humidity: {humidity}
+        Temperature: {temperature}
       </div>
     );
   }
