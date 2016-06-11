@@ -1,22 +1,18 @@
 import fetch from 'isomorphic-fetch'
 import * as types from '../constants/ActionTypes'
+import * as keys from '../constants/Keys'
 
-export function getWeather(text) {
+export function getWeather(data) {
   return dispatch => {
-    return fetch(`http://cors.io/?u=https://api.forecast.io/forecast/c03215974eec432dbdb1a5c941e06e1c/37.8267,-122.423`)
+    return fetch(`http://cors.io/?u=https://api.forecast.io/forecast/${keys.FORECAST}/${data.lat},${data.lng}/`)
       .then(response => response.json())
-      .then(json => dispatch(receiveWeather(text, json)))
+      .then(json => dispatch(receiveWeather(json)))
   }
 }
 
-function receiveWeather(text, json) {
-  var data = [];
-  data.push(json);
+function receiveWeather(json) {
   return {
     type: types.GET_WEATHER,
-    text,
-    data,
-    // posts: json.data.children.map(child => child.data),
-    // receivedAt: Date.now()
+    data: json,
   }
 }

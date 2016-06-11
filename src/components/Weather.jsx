@@ -8,39 +8,36 @@ import Map from '../components/Map'
 class Weather extends Component {
   constructor(props) {
     super(props)
+
+    this._changeData = this._changeData.bind(this);
+  }
+
+  componentDidMount() {
+    //this._changeData({ lat: 47.6062, lng: -122.3321 });
+  }
+
+  _changeData(lat, lng) {
+    console.log('hi');
+    console.log(lat, lng);
+    this.props.getWeather({lat, lng});
   }
 
   render() {
-    const { actions, weather } = this.props;
-    const timezone = (weather.data) ? weather.data[0].timezone : undefined;
+    const { getWeather, weatherData } = this.props;
+    const timezone = weatherData.timezone;
     return (
       <div>asdasdasd
         hi {timezone}
-        <Map />
-        <Controls getWeather={actions.getWeather}/>
+        <Map changeData={this._changeData}/>
+        <Controls getWeather={getWeather}/>
       </div>
     );
   }
 }
 
 Weather.propTypes = {
-  actions: PropTypes.object.isRequired,
-  weather: PropTypes.array.isRequired,
+  getWeather: PropTypes.func.isRequired,
+  weatherData: PropTypes.object.isRequired,
 }
 
-function mapStateToProps(state) {
-  return {
-    weather: state.weather || {}
-  }
-}
-
-function mapDispatchToProps(dispatch) {
-  return {
-    actions: bindActionCreators(WeatherActions, dispatch)
-  }
-}
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Weather)
+export default Weather
