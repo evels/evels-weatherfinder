@@ -2,11 +2,16 @@ import React, { Component, PropTypes } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import * as WeatherActions from '../actions'
+import * as location from '../constants/Location'
 import Weather from '../components/Weather'
 
 class App extends Component {
   constructor(props) {
     super(props);
+  }
+
+  componentDidMount() {
+    this.props.actions.getWeather({ lat: location.DEFAULT_LAT, lng: location.DEFAULT_LNG });
   }
 
   render() {

@@ -1,20 +1,17 @@
 import React, { Component, PropTypes } from 'react'
-import _ from 'lodash';
-import {GoogleMapLoader, GoogleMap, Marker} from 'react-google-maps';
-import { triggerEvent } from 'react-google-maps/lib/utils';
-import update from "react-addons-update";
-
-const DEFAULT_CENTER = { lat: 47.6062, lng: -122.3321 }; //Seattle
-const DEFAULT_CENTER_NAME = 'Seattle';
-const DEFAULT_ZOOM = 6;
+import _ from 'lodash'
+import { GoogleMapLoader, GoogleMap, Marker } from 'react-google-maps'
+import { triggerEvent } from 'react-google-maps/lib/utils'
+import update from "react-addons-update"
+import * as location from '../constants/Location'
 
 class Map extends Component {
   constructor(props, context) {
     super(props, context);
     this.state = {
       markers: [{
-        position: DEFAULT_CENTER,
-        key: DEFAULT_CENTER_NAME,
+        position: location.DEFAULT_CENTER,
+        key: location.DEFAULT_CENTER_NAME,
         defaultAnimation: 2,
       }],
     }
@@ -52,8 +49,8 @@ class Map extends Component {
           googleMapElement={
             <GoogleMap
               ref={(map) => (this._googleMapComponent = map)}
-              defaultZoom={DEFAULT_ZOOM}
-              defaultCenter={DEFAULT_CENTER}
+              defaultZoom={location.DEFAULT_ZOOM}
+              defaultCenter={location.DEFAULT_CENTER}
               onClick={this._handleMapClick.bind(this)}
             >
             {this.state.markers.map((marker, index) => {

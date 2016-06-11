@@ -11,15 +11,11 @@ class Weather extends Component {
 
     this._changeData = this._changeData.bind(this);
   }
-
-  componentDidMount() {
-    //this._changeData({ lat: 47.6062, lng: -122.3321 });
-  }
-
-  _changeData(lat, lng) {
+  
+  _changeData(data) {
     console.log('hi');
-    console.log(lat, lng);
-    this.props.getWeather({lat, lng});
+    console.log(data);
+    this.props.getWeather(data);
   }
 
   render() {
