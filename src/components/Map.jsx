@@ -2,7 +2,6 @@ import React, { Component, PropTypes } from 'react'
 import _ from 'lodash'
 import { GoogleMapLoader, GoogleMap, Marker } from 'react-google-maps'
 import { triggerEvent } from 'react-google-maps/lib/utils'
-import update from "react-addons-update"
 import * as location from '../constants/Location'
 
 class Map extends Component {
