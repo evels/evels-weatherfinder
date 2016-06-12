@@ -14,7 +14,10 @@ module.exports = {
     }, {
       test: /\.scss$/,
       loaders: ['style', 'css', 'sass']
-    }]
+    }],
+    noParse: [
+      /plotly\.js/
+    ],
   },
   resolve: {
     extensions: ['', '.js', '.jsx']

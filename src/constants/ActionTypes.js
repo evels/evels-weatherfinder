@@ -1,2 +1,3 @@
 export const GET_WEATHER = 'GET_WEATHER'
+export const GET_WEATHER_PREVIOUS_DAY = 'GET_WEATHER_PREVIOUS_DAY'
 export const SET_DATE = 'SET_DATE'
