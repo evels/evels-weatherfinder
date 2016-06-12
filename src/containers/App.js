@@ -61,9 +61,9 @@ class App extends Component {
         data.hours.push(-i);
         const hour = (currentHour - i);
         if (hour >= 0) { //today's data
-          data.temps.push(weather.data.hourly.data[hour].temperature);
+          data.temps.push(weather.data.hourly.data[hour].apparentTemperature);
         } else { //yesterday's data
-          data.temps.push(weather.data.hourly.data[yesterHour].temperature);
+          data.temps.push(weather.data.hourly.data[yesterHour].apparentTemperature);
           yesterHour--;
         }
       }
@@ -78,7 +78,7 @@ class App extends Component {
       results = (
         <Results
           humidity={weather.data.currently.humidity}
-          temperature={weather.data.currently.apprarentTemperature}
+          temperature={weather.data.currently.apparentTemperature}
           visibility={weather.data.currently.visibility}
           windSpeed={weather.data.currently.windSpeed}
           cloudCover={weather.data.currently.cloudCover}
