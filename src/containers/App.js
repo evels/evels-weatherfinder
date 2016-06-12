@@ -60,15 +60,13 @@ class App extends Component {
       for(var i = 0; i < 24; i++) {
         data.hours.push(-i);
         const hour = (currentHour - i);
-        if (hour >= 0) { //today
+        if (hour >= 0) { //today's data
           data.temps.push(weather.data.hourly.data[hour].temperature);
-        } else {
+        } else { //yesterday's data
           data.temps.push(weather.data.hourly.data[yesterHour].temperature);
           yesterHour--;
         }
       }
-
-      console.log(data);
       let graphData = [
         {
           type: 'scatter',
