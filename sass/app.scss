@@ -17,10 +17,14 @@ body {
 	margin: 0 auto 50px;
 	h1 {
 		background-color: $text-main-color;
+		box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.5);
 		color: $background-color;
 		margin: 0 auto;
 		padding: 20px 0;
 		text-align: center;
+		span {
+			font-style: italic;
+		}
 	}
 }
 
@@ -34,6 +38,7 @@ body {
 }
 
 .map {
+	box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.5);
 	border: 1px solid $border-color;
 	height: 400px;
 	width: 100%;

@@ -49,11 +49,11 @@ class App extends Component {
 
     return (
       <div className={'app'}>
-        <h1>WeatherNerdzzz</h1>
+        <h1>Weather<span>Nerdzzz</span></h1>
         {results}
         <div className={'container'}>
           <div className={'column'}>
-            <h3>Select location</h3>
+            <h3>Pick location</h3>
             <Map changeData={this._handleLocationChange}/>
           </div>
           <div className={'column'}>
