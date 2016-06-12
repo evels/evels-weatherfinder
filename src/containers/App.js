@@ -41,7 +41,7 @@ class App extends Component {
     const date = (weather.date) ? weather.date.format('MM/DD/YYYY h:mm A') : moment().format('MM/DD/YYYY h:mm A');
     const results = (weather.data) ? (<Results
               humidity={weather.data.currently.humidity}
-              temperature={weather.data.currently.temperature}
+              temperature={weather.data.currently.apparentTemperature}
               visibility={weather.data.currently.visibility}
               windSpeed={weather.data.currently.windSpeed}
               cloudCover={weather.data.currently.cloudCover}
