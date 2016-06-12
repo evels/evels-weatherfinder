@@ -63,7 +63,6 @@ class App extends Component {
               value={date}
               defaultDate={new Date()}
               onChange={this._handleDateChange}/>
-
           </div>
         </div>
       </div>
