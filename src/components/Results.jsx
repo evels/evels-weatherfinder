@@ -1,6 +1,5 @@
 import React, { Component, PropTypes } from 'react'
 
-
 class Results extends Component {
   constructor(props) {
     super(props)

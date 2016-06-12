@@ -2,7 +2,7 @@
 @import "partials/colors";
 @import "vendor/bootstrap_basic";
 @import "vendor/datepicker";
-@import url(https://fonts.googleapis.com/css?family=Lato:400,300,700);
+@import url(https://fonts.googleapis.com/css?family=Lato:400,300,700); //should host own fonts
 
 html,
 body {
@@ -31,46 +31,73 @@ body {
 .container {
 	border-top: 1px solid $border-color;
 	border-bottom: 1px solid $border-color;
-	display: flex;
-	justify-content: space-around;
-	padding: 20px 30px 50px;
 	width: inherit;
+	@include desktop {
+		display: flex;
+		justify-content: space-around;
+		padding: 20px 30px 50px;
+	}
 }
 
 .map {
 	box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.5);
 	border: 1px solid $border-color;
-	height: 400px;
 	width: 100%;
+	@include desktop {
+		height: 400px;
+	}
+	@include mobile {
+		height: 300px;
+	}
 }
 
 .column {
 	padding: 0 30px;
 	position: relative;
-	&:nth-child(1) {
-		width:65%;
-	}
-	&:nth-child(2) {
-		width: 45%;
+	@include desktop {
+		&:nth-child(1) {
+			width:65%;
+		}
+		&:nth-child(2) {
+			width: 45%;
+		}
 	}
 }
 
 .results {
 	display:flex;
-	justify-content: center;
-	margin: 40px 0;
-	padding: 0 50px;
+	justify-content: space-around;
+	flex-wrap: wrap;
 	width: 100%;
+	@include desktop {
+		margin: 40px 0;
+		padding: 0 50px;
+	}
+	@include below-desktop {
+		clear: both;
+		overflow: auto;
+		margin: 20px 0;
+		padding: 0 30px;
+		text-align: center;
+	}
 }
 
 .resultBox {
-	width: 50%;
+	flex-basis: 150px;
 	h2 {
 		font-weight: lighter;
+		@include mobile {
+			font-size: 18px;
+		}
 	}
 	p {
 		font-family: "Georgia";
-		font-size: 20px;
 		font-weight: bold;
+		@include tablet-up {
+			font-size: 20px;
+		}
+		@include mobile {
+			font-size: 16px;
+		}
 	}
 }

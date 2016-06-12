@@ -78,7 +78,7 @@ class App extends Component {
       results = (
         <Results
           humidity={weather.data.currently.humidity}
-          temperature={weather.data.currently.temperature}
+          temperature={weather.data.currently.apprarentTemperature}
           visibility={weather.data.currently.visibility}
           windSpeed={weather.data.currently.windSpeed}
           cloudCover={weather.data.currently.cloudCover}
