@@ -11,7 +11,6 @@ import DateTime from 'react-datetime'
 class App extends Component {
   constructor(props) {
     super(props);
-
     this._handleDateChange = this._handleDateChange.bind(this);
     this._handleLocationChange = this._handleLocationChange.bind(this);
   }
@@ -23,7 +22,7 @@ class App extends Component {
   _handleDateChange(newDate) {
     const { actions, weather } = this.props;
     actions.setDate(newDate);
-    actions.getWeather({ lat: weather.data.latitude, lng: weather.data.longitude, date: moment().format() });
+    actions.getWeather({ lat: weather.data.latitude, lng: weather.data.longitude, date: newDate.format() });
   }
 
   _handleLocationChange(lat, lng) {
@@ -38,23 +37,26 @@ class App extends Component {
     } = this.props;
     const date = (weather.date) ? weather.date : moment().format('MM/DD/YYYY h:mm A');
     const results = (weather.data) ? (<Results
-              timezone={weather.data.timezone || ''}
-              humidity={weather.data.currently.humidity || ''}
-              temperature={weather.data.currently.temperature || ''}
+              humidity={weather.data.currently.humidity}
+              temperature={weather.data.currently.temperature}
+              visibility={weather.data.currently.visibility}
+              windSpeed={weather.data.currently.windSpeed}
+              cloudCover={weather.data.currently.cloudCover}
               />) : null;
 
     return (
       <div className={'app'}>
         <h1>WeatherNerdzzz</h1>
+        {results}
         <div className={'container'}>
-          <Map changeData={this._handleLocationChange}/>
-          <div className={'sidebar'}>
-            {results}
-            <h3>Location Selected:</h3>
-            <p>Latitude: {(weather.data) ? weather.data.latitude : ''}</p>
-            <p>Longitude: {(weather.data) ? weather.data.longitude : ''}</p>
-            <h3>Date and Time Selected: </h3>
+          <div className={'column'}>
+            <h3>Select location</h3>
+            <Map changeData={this._handleLocationChange}/>
+          </div>
+          <div className={'column'}>
+            <h3>Select time/date</h3>
             <DateTime
+              open={true}
               value={date}
               defaultDate={new Date()}
               onChange={this._handleDateChange}/>

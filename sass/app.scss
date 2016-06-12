@@ -1,31 +1,60 @@
 @import "partials/media_queries";
+@import "partials/colors";
 @import "vendor/bootstrap_basic";
 @import "vendor/datepicker";
+@import url(https://fonts.googleapis.com/css?family=Lato:400,300,700);
 
 html,
 body {
+	background-color: $background-color;
 	margin: 0;
 	padding: 0;
 }
 
 .app {
-	border: 1px solid black;
+	color: $text-main-color;
+	font-family: 'Lato';
 	margin: 0 auto;
-	max-width: 900px;
+
+	h1 {
+		background-color: $text-main-color;
+		color: $background-color;
+		margin: 0 auto;
+		padding: 20px 0;
+		text-align: center;
+	}
 }
 
 .container {
 	display: flex;
 	justify-content: space-around;
+	padding: 0 30px;
 	width: inherit;
 }
 
 .map {
 	height: 400px;
+	width: 100%;
+}
+
+.column {
+	padding: 0 30px;
+	position: relative;
 	width: 50%;
 }
 
-.sidebar {
-	padding: 0 30px;
+.results {
+	display:flex;
+	justify-content: center;
+	margin: 40px 0;
+	padding: 0 50px;
+	width: 100%;
+}
+
+.resultBox {
 	width: 50%;
+	p {
+		font-size: 20px;
+		font-weight: bold;
+	}
 }

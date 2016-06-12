@@ -6,7 +6,7 @@ export function getWeather(input) {
   return dispatch => {
     return fetch(`http://cors.io/?u=https://api.forecast.io/forecast/${keys.FORECAST}/${input.lat},${input.lng},${input.date}/`)
       .then(response => response.json())
-      .then(json => {console.log(json); dispatch(receiveWeather(json))})
+      .then(json => dispatch(receiveWeather(json)))
   }
 }
 
@@ -19,7 +19,7 @@ function receiveWeather(json) {
 
 export function setDate(date) {
   return {
-    type: types.SET_DATE, 
+    type: types.SET_DATE,
     date
   }
 }

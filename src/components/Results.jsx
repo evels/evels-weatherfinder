@@ -7,21 +7,39 @@ class Results extends Component {
   }
 
   render() {
-    const { timezone, humidity, temperature } = this.props;
+    const { humidity, temperature, visibility, windSpeed, cloudCover } = this.props;
     return (
-      <div className="results">
-        {timezone}
-        Humidity: {humidity}
-        Temperature: {temperature}
+      <div className={'results'}>
+        <div className={'resultBox'}>
+          <h2>Temperature</h2>
+          <p>{temperature}&#176;</p>
+        </div>
+        <div className={'resultBox'}>
+          <h2>Humidity</h2>
+          <p>{humidity}</p>
+        </div>
+        <div className={'resultBox'}>
+          <h2>Visibility</h2>
+          <p>{visibility}</p>
+        </div>
+        <div className={'resultBox'}>
+          <h2>Wind speed</h2>
+          <p>{windSpeed}</p>
+        </div>
+        <div className={'resultBox'}>
+          <h2>Cloud Cover</h2>
+          <p>{cloudCover}</p>
+        </div>
       </div>
     );
   }
 }
 
 Results.propTypes = {
-  timezone: PropTypes.string.isRequired,
   humidity: PropTypes.number.isRequired,
   temperature: PropTypes.number.isRequired,
+  visibility: PropTypes.number.isRequired,
+  windSpeed: PropTypes.number.isRequired,
 }
 
 export default Results
