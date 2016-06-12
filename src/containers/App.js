@@ -16,7 +16,10 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.props.actions.getWeather({ lat: location.DEFAULT_LAT, lng: location.DEFAULT_LNG, date: moment().format() });
+    const { actions } = this.props;
+    const now = moment();
+    actions.setDate(now);
+    actions.getWeather({ lat: location.DEFAULT_LAT, lng: location.DEFAULT_LNG, date: now.format() });
   }
 
   _handleDateChange(newDate) {
@@ -35,7 +38,7 @@ class App extends Component {
       actions,
       weather,
     } = this.props;
-    const date = (weather.date) ? weather.date : moment().format('MM/DD/YYYY h:mm A');
+    const date = (weather.date) ? weather.date.format('MM/DD/YYYY h:mm A') : moment().format('MM/DD/YYYY h:mm A');
     const results = (weather.data) ? (<Results
               humidity={weather.data.currently.humidity}
               temperature={weather.data.currently.temperature}

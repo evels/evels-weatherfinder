@@ -14,8 +14,7 @@ body {
 .app {
 	color: $text-main-color;
 	font-family: 'Lato';
-	margin: 0 auto;
-
+	margin: 0 auto 50px;
 	h1 {
 		background-color: $text-main-color;
 		color: $background-color;
@@ -40,7 +39,12 @@ body {
 .column {
 	padding: 0 30px;
 	position: relative;
-	width: 50%;
+	&:nth-child(1) {
+		width:65%;
+	}
+	&:nth-child(2) {
+		width: 45%;
+	}
 }
 
 .results {
@@ -54,6 +58,7 @@ body {
 .resultBox {
 	width: 50%;
 	p {
+		font-family: "Georgia";
 		font-size: 20px;
 		font-weight: bold;
 	}
