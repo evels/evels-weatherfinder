@@ -39,8 +39,9 @@ class App extends Component {
   _getWeatherData(lat, lng, date) {
     //until I learn how to make two API calls in one action, this will have to do...
     const { actions } = this.props;
+    actions.getWeather({ lat, lng, date: moment(date).subtract(1, 'days').format() }, 1);
     actions.getWeather({ lat, lng, date: date.format() });
-    actions.getWeather({ lat, lng, date: date.subtract(1, 'days').format() }, 1);
+
   }
 
   render() {
@@ -93,7 +94,6 @@ class App extends Component {
     } else {
       date = moment().format('MM/DD/YYYY h:mm A');
     }
-    console.log(currentHour);
     return (
       <div className={'app'}>
         <h1>Weather<span>Nerdzzz</span></h1>

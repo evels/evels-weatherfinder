@@ -9,7 +9,6 @@ export function getWeather(input, previous) {
       .then(response => response.json())
       .then(json => {
         if (previous) {
-          console.log('pre');
           dispatch(receiveWeatherPreviousDay(json))
         } else {
           dispatch(receiveWeather(json))
