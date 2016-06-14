@@ -3,11 +3,7 @@ import * as location from '../constants/Location'
 
 const initialState = {
   date: moment(),
-  data: {
-    lat: location.DEFAULT_LAT,
-    lng: location.DEFAULT_LNG,
-    date: moment().format()
-  }
+  data: {}
 };
 
 export default function weather(state = initialState, action = {}) {
