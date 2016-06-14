@@ -4,6 +4,8 @@ This application charts the weather conditions at a location selected by a user 
 
 There is a feature branch `temperature-chart` to chart temperature over the past 24 hours for the selected location. (incomplete)
 
+This application is built with React + Redux.
+
 ## To use
     $ git clone git@github.com:evels/evels-weatherfinder.git
     $ cd evels-weatherfinder
@@ -11,3 +13,6 @@ There is a feature branch `temperature-chart` to chart temperature over the past
     $ npm run dev
 
 Open up `localhost:8080` in your browser
+
+## To test
+    $ npm run test

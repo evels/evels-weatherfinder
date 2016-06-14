@@ -36,6 +36,7 @@
     ]
   },
   "dependencies": {
+    "chai-http": "^3.0.0",
     "classnames": "^2.2.5",
     "immutable": "^3.8.1",
     "isomorphic-fetch": "^2.2.1",

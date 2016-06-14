@@ -3,6 +3,9 @@ import * as types from '../constants/ActionTypes'
 import * as keys from '../constants/Keys'
 
 export function getWeather(input, previous) {
+  //TODO:
+  //https://maps.googleapis.com/maps/api/geocode/json?latlng=40.714224,-73.961452&key=AIzaSyAjbzKlWbbaZZKU9PaP3Gk3kGba9agSc1s
+  //could add fun lat/lng => address finder here
   return dispatch => {
     //using cors, would configure headers in prod, but this is okay for now
     return fetch(`http://cors.io/?u=https://api.forecast.io/forecast/${keys.FORECAST}/${input.lat},${input.lng},${input.date}/`)

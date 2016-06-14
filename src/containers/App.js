@@ -21,8 +21,7 @@ class App extends Component {
   componentDidMount() {
     const { actions } = this.props;
     const now = moment();
-    actions.setDate(now);
-    this._getWeatherData(location.DEFAULT_LAT, location.DEFAULT_LNG, now);
+    actions.getWeather({ lat: location.DEFAULT_LAT, lng: location.DEFAULT_LNG, date: now.format() });
   }
 
   _handleDateChange(newDate) {
